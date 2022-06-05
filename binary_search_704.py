@@ -31,29 +31,41 @@ class SolutionProblem704:
 
     def search(self, nums: List[int], target: int) -> int:
 
+        # Declare value to return, if we don't fin target we should return
+        # -1
         index = -1
 
         # Get middle and end
         end = len(nums)
         middle = len(nums)//2
 
+        # Continously iterate
         while True:
 
+            # Compare the current value at the middle of nums with target
             if nums[middle] == target:
                 return middle
 
+            # Search on the first half of nums instead
             elif nums[middle] < target:
                 candidate = ((end - middle)//2) + middle
 
-                if middle != candidate:  # all good
+                # All good
+                if middle != candidate:
                     middle = candidate
-                else:   # reached end
+
+                # Reached end
+                else:
                     break
             else:
                 candidate = (middle//2)
-                if middle != candidate:  # all good
+
+                # All good
+                if middle != candidate:
                     end = middle
                     middle = candidate
-                else:   # reached end
+
+                # Reached end
+                else:
                     break
         return index
