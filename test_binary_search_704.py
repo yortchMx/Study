@@ -76,11 +76,13 @@ class TestSolutionProblem704(unittest.TestCase):
             # Create a random integer target
             target = int(random.random() * 300)
 
+            # Use simple python builtin to determine expected result
             if target in nums:
                 expected = nums.index(target)
             else:
                 expected = -1
 
+            # Run test
             with self.subTest(
                     "Incorrect result", target=target,
                     expected=expected):
