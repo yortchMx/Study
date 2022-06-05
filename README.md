@@ -1,6 +1,6 @@
 # Study
 ******
-## _Study Leetcode Algorithms in python
+## _Study Leetcode Algorithms in python_
 
 This is a personal repo for me to study git, python and general coding.
 I'll use python3 for now at least.
