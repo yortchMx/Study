@@ -1,2 +1,13 @@
 
+# Don't track virtual env
 env_leetcode/**
+
+# Don't track hidden giled
+.*
+
+# Do track the gitignore file itself 
+# (important as hidden files are to be ignored)
+!/.gitignore
+
+# Ignore pycache
+__pycache__/**
