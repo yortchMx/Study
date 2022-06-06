@@ -54,7 +54,7 @@ class TestSolutionProblem704(unittest.TestCase):
         expected = -1
         self.assertEqual(expected, self.solution.search(nums, target))
 
-    def test_parametrized(self, positive: bool):
+    def run_case_parametrized(self, positive: bool):
         """
         Randomize a parametrized test to stress method under test
         """
@@ -75,6 +75,8 @@ class TestSolutionProblem704(unittest.TestCase):
 
             # Create a random integer target
             target = int(random.random() * 300)
+            if positive is False:
+                target = target * - 1
 
             # Use simple python builtin to determine expected result
             if target in nums:
@@ -87,3 +89,11 @@ class TestSolutionProblem704(unittest.TestCase):
                     "Incorrect result", target=target,
                     expected=expected):
                 self.assertEqual(expected, self.solution.search(nums, target))
+
+    def test_with_random_list(self):
+        """
+        Randomize a parametrized test to stress method under test
+        """
+
+        self.run_case_parametrized(True)
+        self.run_case_parametrized(False)
