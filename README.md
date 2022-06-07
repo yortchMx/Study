@@ -14,10 +14,5 @@ I'll use flake8 to practice PEP8 standards when feasible
 
 ## How to run tests:
 ``` sh
-$ python3 -m unittest test_<problem_name_#>
-```
-
-Example:
-``` sh
-$ python3 -m unittest test_binary_search_704.py
+$  python3 test_runner.py
 ```
