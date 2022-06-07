@@ -1,4 +1,4 @@
-# Study
+# Python practice
 ******
 ## _Study Leetcode Algorithms in python_
 
