@@ -30,7 +30,7 @@
 
 import random
 import unittest
-from binary_search_704 import SolutionProblem704
+from src.binary_search_704 import SolutionProblem704
 
 
 class TestSolutionProblem704(unittest.TestCase):
