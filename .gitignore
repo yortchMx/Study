@@ -11,3 +11,4 @@ env_leetcode/**
 
 # Ignore pycache
 __pycache__/**
+*.pyc*
