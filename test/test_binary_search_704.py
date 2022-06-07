@@ -90,7 +90,7 @@ class TestSolutionProblem704(unittest.TestCase):
                     expected=expected):
                 self.assertEqual(expected, self.solution.search(nums, target))
 
-    def test_with_random_list(self):
+    def runTest(self):
         """
         Randomize a parametrized test to stress method under test
         """
