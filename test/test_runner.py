@@ -11,7 +11,7 @@ def main():
 
     print("Running main function")
 
-    test_directory = "test"
+    test_directory = "."
 
     # Use the unittets loader to discover all the test cases from
     # files that have the 'test' prefix
