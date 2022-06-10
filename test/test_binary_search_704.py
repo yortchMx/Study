@@ -95,5 +95,6 @@ class TestSolutionProblem704(unittest.TestCase):
         Randomize a parametrized test to stress method under test
         """
 
+        self.test_custom()
         self.run_case_parametrized(True)
         self.run_case_parametrized(False)

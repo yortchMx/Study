@@ -39,6 +39,7 @@
 # class Solution:
 #     def firstBadVersion(self, n: int) -> int:
 
+import random
 import unittest
 from unittest.mock import MagicMock, patch
 from src.first_bad_version_278 import SolutionProblem278
@@ -49,6 +50,8 @@ class TestSolutionProblem278(unittest.TestCase):
     # unittest setup
     def setUp(self):
         self.solution = SolutionProblem278()
+        self.BAD_SMALLEST = 1
+        self.BAD_BIGGEST = 230
 
     @patch("src.first_bad_version_278.isBadVersion")
     def test_custom(self, magicIsBadVersion: MagicMock):
@@ -56,22 +59,60 @@ class TestSolutionProblem278(unittest.TestCase):
         Test simple inputs
         """
 
-        first_bad_version = 5
+        # Declare a custom first bad version
+        first_bad_version = 2
 
+        # Create a side effect helper function
+        # The isBadVersion in the solution class is patched to be driven
+        # by this simple function
         def side_effect_func(version):
-            """
-            """
             if version >= first_bad_version:
                 return True
 
-        n = 10
+        # Declare arbitary size of n (within contraints)
+        n = 75
 
         magicIsBadVersion.side_effect = side_effect_func
         result = self.solution.firstBadVersion(n)
         self.assertEqual(result, first_bad_version)
+
+    @patch("src.first_bad_version_278.isBadVersion")
+    def run_case_parametrized(self, magicIsBadVersion: MagicMock):
+        """
+        Randomize a parametrized test to stress method under test
+
+        Constraints:
+        1 <= bad <= n <= 231 - 1
+        self.BAD_SMALLEST = 1
+        self.BAD_BIGGEST = 230
+        """
+        # Define number of randome subtest
+        number_of_tests = 50
+
+        for i in range(number_of_tests):
+
+            # Generate random first bad version within limits
+            first_bad_version = random.randint(
+                    self.BAD_SMALLEST, self.BAD_BIGGEST)
+
+            # Create a side effect helper function
+            # The isBadVersion in the solution class is patched to be driven
+            # by this simple function
+            def side_effect_func(version):
+                if version >= first_bad_version:
+                    return True
+
+            # Declare random size of n (within contraints)
+            n = random.randint(
+                    self.BAD_SMALLEST, first_bad_version)
+
+            magicIsBadVersion.side_effect = side_effect_func
+            self.assertEqual(
+                    self.solution.firstBadVersion(n), first_bad_version)
 
     def runTest(self):
         """
         Randomize a parametrized test to stress method under test
         """
         self.test_custom()
+        self.run_case_parametrized()
