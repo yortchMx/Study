@@ -66,16 +66,14 @@ class Solution:
             "M": 1000,
         }
 
+        size = len(s)
+
         # Corner case of size being 1
-        if len(s) == 1:
+        if size == 1:
             return values.get(s)
 
-        size = len(s)
         result = 0
-        same_count = 1
-
         ptr_left = 0
-
         ptr_right = 1
 
         while True:
@@ -86,12 +84,6 @@ class Solution:
             if ptr_right >= size:
                 result += values.get(s[ptr_left])
                 break
-
-            # verify if same as before
-            if values.get(s[ptr_right]) == values.get(s[ptr_left]):
-                same_count += 1
-            else:
-                same_count = 1
 
             if values.get(s[ptr_right]) <= values.get(s[ptr_left]):
                 result += values.get(s[ptr_left])
