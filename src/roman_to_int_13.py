@@ -81,15 +81,19 @@ class Solution:
             if first:
                 first = False
                 if values.get(current) <= values.get(previous):
-                    result = values.get(previous)
+                    tmp = values.get(previous)
                 else:
-                    result = 0
+                    tmp = 0
+            else:
+                tmp = 0
 
             if values.get(current) <= values.get(previous):
-                result += values.get(current)
+                tmp += values.get(current)
                 previous = current
 
             else:
-                result += (values.get(current) - values.get(previous))
+                tmp += (values.get(current) - values.get(previous))
+
+            result += tmp
 
         return result
