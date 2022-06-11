@@ -75,8 +75,8 @@ class TestSolutionProblem13(unittest.TestCase):
         """
         Test simple inputs
         """
-        _roman = "XXX"
-        _int = 30
+        _roman = "MXXX"
+        _int = 1030
 
         self.assertEqual(_int, self.solution.romanToInt(_roman))
 

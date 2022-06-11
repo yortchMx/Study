@@ -77,7 +77,7 @@ class Solution:
             if first:
                 first = False
                 if values.get(current) <= values.get(previous):
-                    result = values.get(current)
+                    result = values.get(previous)
                 else:
                     result = 0
 
