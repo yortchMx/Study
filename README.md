@@ -14,7 +14,11 @@ I'll use flake8 to practice PEP8 standards when feasible
 - The files are named in such a way you can find the problem name and number in the file name.
 - Each solution has it's own unittest file, this file has the same name convention, but has the 'test' prefix
 
+## How to download:
+``` sh
+$ git clone 
+```
 ## How to run tests:
 ``` sh
-$  python3 test_runner.py
+$  python3 test/test_runner.py
 ```
