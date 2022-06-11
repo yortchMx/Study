@@ -21,8 +21,8 @@
 # principle applies to the number nine, which is written as IX. There are six
 # instances where subtraction is used:
 #
-#     I can be placed before V (5) and X (10) to make 4 and 9. 
-#     X can be placed before L (50) and C (100) to make 40 and 90. 
+#     I can be placed before V (5) and X (10) to make 4 and 9.
+#     X can be placed before L (50) and C (100) to make 40 and 90.
 #     C can be placed before D (500) and M (1000) to make 400 and 900.
 #     Given a roman numeral, convert it to an integer.
 #
@@ -65,12 +65,16 @@ class Solution:
             "M": 1000,
         }
 
+        # Corner case of size being 1
         if len(s) == 1:
             return values.get(s)
 
+        # Size is >=2 at this point
         previous = s[0]
         result = 0
         first = True
+
+        count_same = 0
 
         for current in s[1:]:
 
@@ -84,5 +88,8 @@ class Solution:
             if values.get(current) <= values.get(previous):
                 result += values.get(current)
                 previous = current
+
+            else:
+                result += (values.get(current) - values.get(previous))
 
         return result

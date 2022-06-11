@@ -21,8 +21,8 @@
 # principle applies to the number nine, which is written as IX. There are six
 # instances where subtraction is used:
 #
-#     I can be placed before V (5) and X (10) to make 4 and 9. 
-#     X can be placed before L (50) and C (100) to make 40 and 90. 
+#     I can be placed before V (5) and X (10) to make 4 and 9.
+#     X can be placed before L (50) and C (100) to make 40 and 90.
 #     C can be placed before D (500) and M (1000) to make 400 and 900.
 #     Given a roman numeral, convert it to an integer.
 #
@@ -66,23 +66,16 @@ class TestSolutionProblem13(unittest.TestCase):
     def setUp(self):
 
         self.solution = Solution()
-        self.NUMS_LENGTH_MAX = 104
-        self.NUMS_LENGTH_MIN = 1
-        self.NUMS_SMALLEST = -140
-        self.NUMS_BIGGEST = 140
-
-    def test_custom(self):
-        """
-        Test simple inputs
-        """
-        _roman = "MXXX"
-        _int = 1030
-
-        self.assertEqual(_int, self.solution.romanToInt(_roman))
 
     def runTest(self):
         """
-        Randomize a parametrized test to stress method under test
+        Run a parametrized test to stress method under test
         """
 
-        self.test_custom()
+        self.assertEqual(30, self.solution.romanToInt("XXX"))
+        self.assertEqual(10, self.solution.romanToInt("X"))
+        self.assertEqual(1, self.solution.romanToInt("I"))
+        self.assertEqual(9, self.solution.romanToInt("IX"))
+        self.assertEqual(400, self.solution.romanToInt("CD"))
+        import pdb;pdb.set_trace()
+        self.assertEqual(1994, self.solution.romanToInt("MCMXCIV"))
