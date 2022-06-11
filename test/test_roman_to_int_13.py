@@ -75,8 +75,8 @@ class TestSolutionProblem13(unittest.TestCase):
         self.assertEqual(30, self.solution.romanToInt("XXX"))
         self.assertEqual(10, self.solution.romanToInt("X"))
         self.assertEqual(1, self.solution.romanToInt("I"))
+
         self.assertEqual(9, self.solution.romanToInt("IX"))
         self.assertEqual(400, self.solution.romanToInt("CD"))
 
-        import pdb;pdb.set_trace()
         self.assertEqual(1994, self.solution.romanToInt("MCMXCIV"))

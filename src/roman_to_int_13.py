@@ -69,31 +69,42 @@ class Solution:
         if len(s) == 1:
             return values.get(s)
 
-        # Size is >=2 at this point
-        previous = s[0]
+        size = len(s)
         result = 0
-        first = True
+        same_count = 1
 
-        count_same = 0
+        ptr_left = 0
 
-        for current in s[1:]:
+        ptr_right = 1
 
-            if first:
-                first = False
-                if values.get(current) <= values.get(previous):
-                    tmp = values.get(previous)
-                else:
-                    tmp = 0
+        while True:
+
+            # end of s
+            if ptr_left >= size:
+                break
+            if ptr_right >= size:
+                result += values.get(s[ptr_left])
+                break
+
+            # move point for next iteration
+            #ptr_right += 1
+
+            # verify if same as before
+            if values.get(s[ptr_right]) == values.get(s[ptr_left]):
+                same_count += 1
             else:
-                tmp = 0
+                same_count = 1
 
-            if values.get(current) <= values.get(previous):
-                tmp += values.get(current)
-                previous = current
+            if values.get(s[ptr_right]) <= values.get(s[ptr_left]):
+                result += values.get(s[ptr_left])
+                ptr_left += 1
+                ptr_right += 1
 
             else:
-                tmp += (values.get(current) - values.get(previous))
+                result += (values.get(s[ptr_right]) - values.get(s[ptr_left]))
+                ptr_left += 2
+                ptr_right += 2
 
-            result += tmp
+
 
         return result
