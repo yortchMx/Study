@@ -16,9 +16,11 @@ I'll use flake8 to practice PEP8 standards when feasible
 
 ## How to download:
 ``` sh
-$ git clone 
+$ git clone git@github.com:yortchMx/Study.git
+$ cd Study/
 ```
 ## How to run tests:
 ``` sh
+$ cd Study/
 $  python3 test/test_runner.py
 ```
