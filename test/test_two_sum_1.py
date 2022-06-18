@@ -39,6 +39,7 @@
 #        pass
 
 import unittest
+import random
 from src.two_sum_1 import SolutionProblem1
 
 
@@ -49,9 +50,11 @@ class TestSolutionProblem1(unittest.TestCase):
 
         self.solution = SolutionProblem1()
         self.NUMS_LENGTH_MAX = 104
-        self.NUMS_LENGTH_MIN = 1
-        self.NUMS_SMALLEST = -140
-        self.NUMS_BIGGEST = 140
+        self.NUMS_LENGTH_MIN = 2
+        self.NUMS_SMALLEST = -109
+        self.NUMS_BIGGEST = 109
+        self.TARGET_SMALLEST = -109
+        self.TARGET_BIGGEST = 109
 
     def test_custom(self):
         """
@@ -68,8 +71,42 @@ class TestSolutionProblem1(unittest.TestCase):
     def run_case_parametrized(self):
         """
         Randomize a parametrized test to stress method under test
+        Constraints:
+
+              2 <= nums.length <= 104
+              -109 <= nums[i] <= 109
+              -109 <= target <= 109
+              Only one valid answer exists.
         """
-        raise NotImplementedError
+        # Define number of randome subtest
+        number_of_tests = 50
+
+        for i in range(number_of_tests):
+
+            # Generate random nums list within size limits
+            nums_lenght = random.randint(
+                    self.NUMS_LENGTH_MIN, self.NUMS_LENGTH_MAX)
+            nums = random.sample(
+                population=range(self.NUMS_LENGTH_MIN, self.NUMS_LENGTH_MAX),
+                k=nums_lenght)
+
+            # Generate two random non equal index of nums
+            test_index_1 = random.randint(
+                0, nums_lenght)
+
+            # This will be slow for small nums.length, will look for
+            # alternatives later, but should not lock as minimum size is 2
+            while True:
+                test_index_2 = random.randint(
+                    0, nums_lenght)
+                if test_index_1 != test_index_2:
+                    break
+
+            target = nums[test_index_1] + nums[test_index_2]
+
+            self.assertEqual(
+                self.solution.twoSum(nums, target), [test_index_1,
+                    test_index_2])
 
     def runTest(self):
         """
@@ -77,3 +114,4 @@ class TestSolutionProblem1(unittest.TestCase):
         """
 
         self.test_custom()
+        self.parametrized()
