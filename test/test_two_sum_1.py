@@ -4,8 +4,8 @@
 # Given an array of integers nums and an integer target, return indices of the
 # two numbers such that they add up to target.
 #
-# You may assume that each input would have exactly one solution, and you may not
-# use the same element twice.
+# You may assume that each input would have exactly one solution, and you may
+# not use the same element twice.
 #
 # You can return the answer in any order.
 # Example 1:
@@ -58,12 +58,12 @@ class TestSolutionProblem1(unittest.TestCase):
         Test simple inputs
         """
 
-        nums = [2,7,11,15]
+        nums = [2, 7, 11, 15]
         target = 9
-        expected = [0, -1]
+        expected = [0, 1]
         # Add the sort at the end to compare with a sorted expected list, as
         # the instructions mention that order doesn't matter
-        self.assertEqual(expected, self.solution.twoSum(nums, target).sort())
+        self.assertEqual(expected, sorted(self.solution.twoSum(nums, target)))
 
     def run_case_parametrized(self):
         """
