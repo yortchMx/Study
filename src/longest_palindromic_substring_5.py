@@ -18,5 +18,28 @@
 #    s consist of only digits and English letters.
 
 class Solution:
+
         def longestPalindrome(self, s: str) -> str:
-            pass
+
+            size = len(s)
+
+            if size == 1:
+                return(s)
+            elif size == 2:
+                return s[0]
+
+            previous = s[0]
+            stack = [previous]
+            for letter in s[2:]:
+
+                print(f"pusshing {letter}")
+
+                if previous == letter:
+                    peak = True
+
+                else:
+                    previous =+ 1
+                    stack.append(letter)
+
+
+            return s
