@@ -8,6 +8,7 @@ pythonic/native ways to solve the problems, but will use those methods
 to verify the solution with unittests.
 I'll create a requirements.txt file and will try to follow good practices.
 I'll use flake8 to practice PEP8 standards when feasible
+Not all solutions will have unittest, but all in MAIN will be something that passed in leetcode the submission
 
 ## CODE HIERARCHY
 - Each leetcode problem solution is located in its own file.
